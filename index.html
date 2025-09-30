@@ -14,6 +14,7 @@
       display:flex;
       justify-content:center;
       padding:20px;
+      font-size:19px; /* увеличил общий текст */
     }
     .container {
       max-width:600px;
@@ -24,11 +25,11 @@
       box-shadow:0 6px 24px rgba(0,0,0,0.1);
       text-align:center;
     }
-    h1 { font-size:28px; margin-bottom:14px; }
-    p { margin:8px 0; font-size:18px; line-height:1.4; }
+    h1 { font-size:30px; margin-bottom:14px; }
+    p { margin:10px 0; font-size:19px; line-height:1.5; }
     img.main-photo {
-      width:300px;
-      max-width:90%;
+      width:320px;
+      max-width:95%;
       border-radius:12px;
       margin:20px auto;
       display:block;
@@ -40,7 +41,7 @@
       border-radius:10px;
       text-align:center;
     }
-    .info-block p { margin:10px 0; font-size:18px; }
+    .info-block p { margin:10px 0; font-size:19px; }
     .btn {
       display:inline-flex;
       align-items:center;
@@ -52,59 +53,72 @@
       border-radius:8px;
       text-decoration:none;
       font-weight:bold;
-      font-size:16px;
+      font-size:17px;
     }
     .btn img {
       width:24px;
       height:24px;
       margin-right:10px;
     }
-    footer { margin-top:24px; font-size:15px; color:#555; font-style:italic; }
+    footer { margin-top:24px; font-size:16px; color:#555; font-style:italic; }
 
-    /* RSVP форма */
-    .rsvp {
-      margin-top:30px;
-      padding:18px;
-      background:#ffe9d6;
-      border-radius:12px;
+  /* RSVP форма */
+  .rsvp {
+    margin-top:30px;
+    padding:18px;
+    background:#ffe9d6;
+    border-radius:12px;
+  }
+  .rsvp input {
+    padding:10px;
+    width:85%;
+    margin-bottom:14px;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:17px;
+  }
+  .rsvp button {
+    display:block;
+    width:100%;
+    margin:10px auto;
+    padding:12px 0;
+    border:none;
+    background:none;     /* убрал фон */
+    color:#333;          /* просто текст */
+    font-size:18px;
+    font-weight:bold;
+    cursor:pointer;
+    transition: all 0.3s;
+  }
+  .rsvp button:hover {
+    text-decoration: underline; /* лёгкое подчёркивание при наведении */
+    color:#d47d34;              /* можно добавить акцентный цвет */
     }
-    .rsvp input {
-      padding:8px;
-      width:80%;
-      margin-bottom:12px;
-      border:1px solid #ccc;
-      border-radius:6px;
-      font-size:16px;
-    }
-    .rsvp button {
-      margin:6px;
-      padding:10px 20px;
-      border:none;
-      border-radius:8px;
-      cursor:pointer;
-      font-size:16px;
-    }
-    .yes { background:#4caf50; color:#fff; }
-    .no { background:#f44336; color:#fff; }
 
     /* Календарь */
     .calendar {
-      margin:20px auto;
+      margin:30px auto;
       text-align:center;
     }
     .calendar h2 {
-      margin-bottom:10px;
-      font-size:20px;
+      margin-bottom:14px;
+      font-size:22px;
+      font-weight:bold;
     }
     .calendar table {
       width:100%;
       border-collapse:collapse;
       margin:0 auto;
+      background:#fff8f0;
+      border-radius:10px;
+      overflow:hidden;
+      box-shadow:0 3px 10px rgba(0,0,0,0.1);
     }
     .calendar th, .calendar td {
-      padding:8px;
+      padding:12px;
       text-align:center;
       border:1px solid #ddd;
+      font-size:18px;
     }
     .calendar .highlight {
       background:#d47d34;
@@ -116,7 +130,7 @@
     /* Countdown */
     #countdown {
       margin-top:30px;
-      font-size:20px;
+      font-size:22px;
       font-weight:bold;
       color:#222;
     }
@@ -172,10 +186,8 @@
     <div class="rsvp">
       <h2>Подтверждение участия</h2>
       <input type="text" id="guestName" placeholder="Ваше имя" required>
-      <div>
-        <button class="yes" onclick="sendRSVP('Да, конечно приеду')">Да, конечно, приеду</button>
-        <button class="no" onclick="sendRSVP('Нет, к сожалению не смогу приехать')">Нет, к сожалению, не смогу приехать</button>
-      </div>
+      <button onclick="sendRSVP('Да, конечно приеду')">Да, конечно, приеду</button>
+      <button onclick="sendRSVP('Нет, к сожалению не смогу приехать')">Нет, к сожалению, не смогу приехать</button>
     </div>
 
     <!-- Музыка -->
@@ -271,7 +283,7 @@
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      countdownEl.innerHTML = `До начала мероприятия осталось: ${days}д ${hours}ч ${minutes}м ${seconds}с`;
+      countdownEl.innerHTML = `До начала мероприятия осталось: <br><strong>${days}д ${hours}ч ${minutes}м ${seconds}с</strong>`;
     }
 
     setInterval(updateCountdown, 1000);
