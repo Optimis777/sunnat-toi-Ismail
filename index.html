@@ -3,47 +3,113 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Приглашение на Суннәт той</title>
+  <title>Приглашение на суннет той</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body { margin:0; font-family:'Cormorant Garamond', serif; background:#fff6ef; color:#333; display:flex; justify-content:center; padding:20px; }
-    .container { max-width:600px; width:100%; background:#fff; padding:24px; border-radius:16px; box-shadow:0 6px 24px rgba(0,0,0,0.1); text-align:center; }
+    body {
+      margin:0;
+      font-family:'Cormorant Garamond', serif;
+      background:#fdfaf6; /* молочный фон */
+      color:#333;
+      display:flex;
+      justify-content:center;
+      padding:20px;
+    }
+    .container {
+      max-width:600px;
+      width:100%;
+      background:#fffdf9;
+      padding:24px;
+      border-radius:16px;
+      box-shadow:0 6px 24px rgba(0,0,0,0.1);
+      text-align:center;
+    }
     h1 { font-size:28px; margin-bottom:14px; }
     p { margin:8px 0; font-size:18px; line-height:1.4; }
     img.main-photo { max-width:100%; border-radius:12px; margin:20px 0; }
-    .info-block { margin-top:20px; background:#fff2e5; padding:18px; border-radius:10px; text-align:center; }
+    .info-block {
+      margin-top:20px;
+      background:#fff3e8;
+      padding:18px;
+      border-radius:10px;
+      text-align:center;
+    }
     .info-block p { margin:10px 0; font-size:18px; }
-    .btn { display:inline-block; margin-top:20px; background:#d47d34; color:#fff; padding:12px 22px; border-radius:8px; text-decoration:none; font-weight:bold; font-size:16px; }
+    .btn {
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      margin-top:20px;
+      background:#d47d34;
+      color:#fff;
+      padding:12px 22px;
+      border-radius:8px;
+      text-decoration:none;
+      font-weight:bold;
+      font-size:16px;
+    }
+    .btn img {
+      width:20px;
+      height:20px;
+      margin-right:8px;
+    }
     footer { margin-top:24px; font-size:15px; color:#555; font-style:italic; }
 
     /* RSVP форма */
-    .rsvp { margin-bottom:25px; padding:18px; background:#ffe9d6; border-radius:12px; }
-    .rsvp input { padding:8px; width:80%; margin-bottom:12px; border:1px solid #ccc; border-radius:6px; font-size:16px; }
-    .rsvp button { margin:6px; padding:10px 20px; border:none; border-radius:8px; cursor:pointer; font-size:16px; }
+    .rsvp {
+      margin-top:30px;
+      padding:18px;
+      background:#ffe9d6;
+      border-radius:12px;
+    }
+    .rsvp input {
+      padding:8px;
+      width:80%;
+      margin-bottom:12px;
+      border:1px solid #ccc;
+      border-radius:6px;
+      font-size:16px;
+    }
+    .rsvp button {
+      margin:6px;
+      padding:10px 20px;
+      border:none;
+      border-radius:8px;
+      cursor:pointer;
+      font-size:16px;
+    }
     .yes { background:#4caf50; color:#fff; }
     .no { background:#f44336; color:#fff; }
 
     /* Оверлей для запуска музыки */
-    #overlay { position: fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); display:flex; justify-content:center; align-items:center; z-index:1000; }
-    #playBtn { font-size:18px; padding:14px 24px; background:#d47d34; color:#fff; border:none; border-radius:12px; cursor:pointer; font-weight:bold; }
+    #overlay {
+      position: fixed;
+      top:0; left:0;
+      width:100%; height:100%;
+      background:rgba(0,0,0,0.6);
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      z-index:1000;
+    }
+    #playBtn {
+      font-size:18px;
+      padding:14px 24px;
+      background:#d47d34;
+      color:#fff;
+      border:none;
+      border-radius:12px;
+      cursor:pointer;
+      font-weight:bold;
+    }
   </style>
 </head>
 <body>
 
   <div class="container">
 
-    <!-- RSVP -->
-    <div class="rsvp">
-      <h2>Подтверждение участия</h2>
-      <input type="text" id="guestName" placeholder="Ваше имя" required>
-      <div>
-        <button class="yes" onclick="sendRSVP('Да')">Да</button>
-        <button class="no" onclick="sendRSVP('Нет')">Нет</button>
-      </div>
-    </div>
-
     <!-- Основной текст -->
-    <h1>Приглашение на Суннәт Той</h1>
+    <h1>Приглашение на Суннет Той</h1>
     <p>Дорогие друзья и близкие!</p>
     <p>С радостью приглашаем вас на праздник в честь нашего сына <strong>Исмаил</strong>.</p>
 
@@ -58,7 +124,21 @@
       <p><strong>📞 Контакты:</strong> +7 777 123 45 67</p>
     </div>
 
-    <a class="btn" href="https://go.2gis.com/DEo5i" target="_blank">Открыть на карте</a>
+    <!-- Кнопка с иконкой 2ГИС -->
+    <a class="btn" href="https://go.2gis.com/DEo5i" target="_blank">
+      <img src="https://cdn2.2gis.com/img/0/icons/favicon-32x32.png" alt="2GIS">
+      Открыть на карте
+    </a>
+
+    <!-- RSVP -->
+    <div class="rsvp">
+      <h2>Подтверждение участия</h2>
+      <input type="text" id="guestName" placeholder="Ваше имя" required>
+      <div>
+        <button class="yes" onclick="sendRSVP('Да')">Да</button>
+        <button class="no" onclick="sendRSVP('Нет')">Нет</button>
+      </div>
+    </div>
 
     <!-- Музыка -->
     <audio id="bg-audio" loop>
@@ -76,7 +156,7 @@
 
   <script>
     function sendRSVP(answer) {
-      const name = document.getElementById("guestName").value.trim();
+      var name = document.getElementById("guestName").value.trim();
       if (!name) {
         alert("Пожалуйста, укажите ваше имя");
         return;
@@ -93,7 +173,7 @@
 
     const audio = document.getElementById('bg-audio');
     const btn = document.getElementById('playBtn');
-    const overlay = document.getElementById('overlay'); 
+    const overlay = document.getElementById('overlay');
 
     btn.addEventListener('click', async () => {
       try {
