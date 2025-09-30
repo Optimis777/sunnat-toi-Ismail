@@ -26,7 +26,13 @@
     }
     h1 { font-size:28px; margin-bottom:14px; }
     p { margin:8px 0; font-size:18px; line-height:1.4; }
-    img.main-photo { max-width:100%; border-radius:12px; margin:20px 0; }
+    img.main-photo {
+      width:300px;
+      max-width:90%;
+      border-radius:12px;
+      margin:20px auto;
+      display:block;
+    }
     .info-block {
       margin-top:20px;
       background:#fff3e8;
@@ -81,6 +87,32 @@
     .yes { background:#4caf50; color:#fff; }
     .no { background:#f44336; color:#fff; }
 
+    /* Календарь */
+    .calendar {
+      margin:20px auto;
+      text-align:center;
+    }
+    .calendar h2 {
+      margin-bottom:10px;
+      font-size:20px;
+    }
+    .calendar table {
+      width:100%;
+      border-collapse:collapse;
+      margin:0 auto;
+    }
+    .calendar th, .calendar td {
+      padding:8px;
+      text-align:center;
+      border:1px solid #ddd;
+    }
+    .calendar .highlight {
+      background:#d47d34;
+      color:#fff;
+      font-weight:bold;
+      border-radius:6px;
+    }
+
     /* Countdown */
     #countdown {
       margin-top:30px;
@@ -117,16 +149,16 @@
   <div class="container">
 
     <!-- Основной текст -->
-    <h1>Приглашение на Суннәт Той</h1>
-    <p>Дорогие друзья, братья, сестры, родственники, коллеги, соседи и просто близкие!</p>
+    <h1>Приглашение на Суннәт Той!</h1>
+    <p>Дорогие друзья, братья, сестры, родственники, коллеги, соседи и просто близкие</p>
     <p>С радостью приглашаем вас на праздник в честь нашего сына <strong>Исмаила</strong>.</p>
 
-    <img src="photo.jpg" alt="Фото КОТОРОГО ЕЩЁ НЕТУ " class="main-photo">
+    <img src="photo.jpg" class="main-photo">
 
     <div class="info-block">
       <p><strong>Дата:</strong> 18 октября 2025, 18:00</p>
       <p><strong>Место:</strong> Алматы, ул. Ильяса Жансугурова, 283</p>
-      <p><strong>Хозяева торжества:</strong> Ялкунжан и Зарина</p>
+      <p><strong>Хозяева торжества:</strong> Ялкунджан и Зарина</p>
       <p><strong>📞 Контакты:</strong> +7 747 589 9010, +7 702 654 9993</p>
     </div>
 
@@ -141,8 +173,8 @@
       <h2>Подтверждение участия</h2>
       <input type="text" id="guestName" placeholder="Ваше имя" required>
       <div>
-        <button class="yes" onclick="sendRSVP('Да, конечно приеду')">Да, конечно приеду</button>
-        <button class="no" onclick="sendRSVP('Нет, к сожалению не смогу приехать')">Нет, к сожалению не смогу приехать</button>
+        <button class="yes" onclick="sendRSVP('Да, конечно приеду')">Да, конечно, приеду</button>
+        <button class="no" onclick="sendRSVP('Нет, к сожалению не смогу приехать')">Нет, к сожалению, не смогу приехать</button>
       </div>
     </div>
 
@@ -151,6 +183,31 @@
       <source src="music.mp3" type="audio/mpeg">
       Ваш браузер не поддерживает аудио.
     </audio>
+
+    <!-- Календарь -->
+    <div class="calendar">
+      <h2>Октябрь 2025</h2>
+      <table>
+        <tr>
+          <th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th><th>Сб</th><th>Вс</th>
+        </tr>
+        <tr>
+          <td></td><td></td><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td>
+        </tr>
+        <tr>
+          <td>6</td><td>7</td><td>8</td><td>9</td><td>10</td><td>11</td><td>12</td>
+        </tr>
+        <tr>
+          <td>13</td><td>14</td><td>15</td><td>16</td><td>17</td><td class="highlight">18</td><td>19</td>
+        </tr>
+        <tr>
+          <td>20</td><td>21</td><td>22</td><td>23</td><td>24</td><td>25</td><td>26</td>
+        </tr>
+        <tr>
+          <td>27</td><td>28</td><td>29</td><td>30</td><td>31</td><td></td><td></td>
+        </tr>
+      </table>
+    </div>
 
     <!-- Countdown -->
     <div id="countdown"></div>
@@ -172,10 +229,13 @@
       }
       fetch("https://script.google.com/macros/s/AKfycbzu141Mhj3NNtlGZFmVkA2DpOP48FS6uQX5lZd5OaQJ9IpQl1a2HS0VscNJGVnx_oA/exec", {
         method: "POST",
-        mode: "no-cors",
         headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: "name=" + encodeURIComponent(name) + "&answer=" + encodeURIComponent(answer)
-      });
+      })
+      .then(r => r.text())
+      .then(txt => console.log("Ответ от сервера:", txt))
+      .catch(err => console.error(err));
+
       alert("Спасибо, " + name + "! Ваш ответ: " + answer);
       document.getElementById("guestName").value = "";
     }
