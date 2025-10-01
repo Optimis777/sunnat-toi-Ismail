@@ -20,100 +20,40 @@
       overflow-x: hidden;
     }
     .background-decor {
-      position: fixed !important;
+      position: fixed;
       top: 0; left: 0;
-      width: 100vw !important;
-      height: 100vh !important;
-      min-width: 100vw;
-      min-height: 100vh;
+      width: 100vw;
+      height: 100vh;
       pointer-events: none;
-      z-index: 0 !important;
-      overflow: visible !important;
+      z-index: 0;
+      overflow: visible;
+    }
+    .star, .particle {
+      position: absolute;
+      z-index: 1;
+      opacity: 0.7;
     }
     .star {
-      position: absolute;
       background: #fff;
       clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
       animation: twinkle 3s ease-in-out infinite;
-      opacity: 0.7 !important;
-      z-index: 1 !important;
     }
-    .star:nth-child(1)  { top:  8%; left: 5%;  width: 16px; height: 16px; animation-delay: 0s; }
-    .star:nth-child(2)  { top: 18%; left: 90%; width: 12px; height: 12px; animation-delay: .4s;}
-    .star:nth-child(3)  { top: 38%; left: 10%; width: 10px; height: 10px; animation-delay: .8s;}
-    .star:nth-child(4)  { top: 60%; left: 85%; width: 14px; height: 14px; animation-delay: 1.2s;}
-    .star:nth-child(5)  { top: 75%; left: 25%; width: 11px; height: 11px; animation-delay: 1.6s;}
-    .star:nth-child(6)  { top: 22%; left: 60%; width: 13px; height: 13px; animation-delay: 2s; }
-    .star:nth-child(7)  { top: 80%; left: 60%; width: 10px; height: 10px; animation-delay: 2.4s;}
-    .star:nth-child(8)  { top: 12%; left: 35%; width: 12px; height: 12px; animation-delay: .3s;}
-    .star:nth-child(9)  { top: 30%; left: 65%; width: 11px; height: 11px; animation-delay: .7s;}
-    .star:nth-child(10) { top: 50%; left: 15%; width: 13px; height: 13px; animation-delay: 1.1s;}
-    .star:nth-child(11) { top: 65%; left: 75%; width: 10px; height: 10px; animation-delay: 1.5s;}
-    .star:nth-child(12) { top: 35%; left: 40%; width: 14px; height: 14px; animation-delay: 1.9s;}
-    .star:nth-child(13) { top: 55%; left: 55%; width: 11px; height: 11px; animation-delay: .8s;}
-    .star:nth-child(14) { top: 75%; left: 45%; width: 12px; height: 12px; animation-delay: 1.3s;}
-    .star:nth-child(15) { top: 18%; left: 70%; width: 10px; height: 10px; animation-delay: .6s;}
-    .star:nth-child(16) { top: 45%; left: 30%; width: 13px; height: 13px; animation-delay: 2.2s;}
-    .star:nth-child(17) { top: 85%; left: 20%; width: 11px; height: 11px; animation-delay: 1.7s;}
-    .star:nth-child(18) { top: 12%; left: 80%; width: 12px; height: 12px; animation-delay: 2.6s;}
-    .star:nth-child(19) { top: 38%; left: 94%; width: 10px; height: 10px; animation-delay: .1s;}
-    .star:nth-child(20) { top: 68%; left: 95%; width: 14px; height: 14px; animation-delay: 1.5s;}
     @keyframes twinkle {
       0%, 100% { opacity: .3; transform: scale(1);}
       50% { opacity: .9; transform: scale(1.2);}
     }
     .particle {
-      position: absolute;
       background: radial-gradient(circle, #d4af37 0%, transparent 70%);
       border-radius: 50%;
-      pointer-events: none;
       animation: fall linear infinite;
-      opacity: 0.7 !important;
-      z-index: 1 !important;
+      opacity: 0.7;
     }
     @keyframes fall {
       0% { transform: translateY(0) translateX(0); opacity: 1; }
       100% { transform: translateY(100vh) translateX(30px); opacity: 0; }
     }
-    .particle:nth-child(21) { top: 12%; left: 10%; width: 6px; height: 6px; animation-duration: 8s; animation-delay: 0s; }
-    .particle:nth-child(22) { top: 20%; left: 85%; width: 5px; height: 5px; animation-duration: 9s; animation-delay: .5s; }
-    .particle:nth-child(23) { top: 35%; left: 35%; width: 5px; height: 5px; animation-duration: 10s; animation-delay: 1s; }
-    .particle:nth-child(24) { top: 58%; left: 80%; width: 7px; height: 7px; animation-duration: 11s; animation-delay: 1.5s; }
-    .particle:nth-child(25) { top: 70%; left: 25%; width: 4px; height: 4px; animation-duration: 12s; animation-delay: 2s; }
-    .particle:nth-child(26) { top: 25%; left: 60%; width: 6px; height: 6px; animation-duration: 8s; animation-delay: 2.5s; }
-    .particle:nth-child(27) { top: 82%; left: 60%; width: 7px; height: 7px; animation-duration: 9s; animation-delay: 3s; }
-    .particle:nth-child(28) { top: 13%; left: 45%; width: 5px; height: 5px; animation-duration: 10s; animation-delay: 3.5s; }
-    .particle:nth-child(29) { top: 32%; left: 65%; width: 6px; height: 6px; animation-duration: 11s; animation-delay: 4s; }
-    .particle:nth-child(30) { top: 52%; left: 15%; width: 5px; height: 5px; animation-duration: 12s; animation-delay: 4.5s; }
-    .particle:nth-child(31) { top: 5%; left: 18%; width: 6px; height: 6px; animation-duration: 13s; animation-delay: 5s; }
-    .particle:nth-child(32) { top: 38%; left: 78%; width: 5px; height: 5px; animation-duration: 8s; animation-delay: 5.5s; }
-    .particle:nth-child(33) { top: 55%; left: 8%; width: 7px; height: 7px; animation-duration: 9s; animation-delay: 6s; }
-    .particle:nth-child(34) { top: 75%; left: 92%; width: 6px; height: 6px; animation-duration: 10s; animation-delay: 6.5s; }
-    .particle:nth-child(35) { top: 12%; left: 38%; width: 5px; height: 5px; animation-duration: 11s; animation-delay: 7s; }
-    .particle:nth-child(36) { top: 48%; left: 58%; width: 7px; height: 7px; animation-duration: 12s; animation-delay: 7.5s; }
-    .particle:nth-child(37) { top: 68%; left: 42%; width: 6px; height: 6px; animation-duration: 13s; animation-delay: 8s; }
-    .particle:nth-child(38) { top: 22%; left: 88%; width: 6px; height: 6px; animation-duration: 8s; animation-delay: 8.5s; }
-    .particle:nth-child(39) { top: 42%; left: 3%; width: 7px; height: 7px; animation-duration: 9s; animation-delay: 9s; }
-    .particle:nth-child(40) { top: 62%; left: 72%; width: 6px; height: 6px; animation-duration: 10s; animation-delay: 9.5s; }
-    @media (max-width: 600px) {
-      .background-decor {
-        position: fixed !important;
-        width: 100vw !important;
-        height: 100vh !important;
-        min-width: 100vw;
-        min-height: 100vh;
-        z-index: 0 !important;
-        pointer-events: none;
-        overflow: visible !important;
-        display: block !important;
-      }
-      .star, .particle {
-        display: block !important;
-        opacity: 0.7 !important;
-        z-index: 1 !important;
-      }
-    }
-    /* ----- Основные стили для контента ----- */
+
+    /* --- Внутри контейнера --- */
     .container {
       max-width: 800px;
       width: 100%;
@@ -127,6 +67,31 @@
       overflow: hidden;
       z-index: 2;
     }
+    .container-decor {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      pointer-events: none;
+      z-index: 1;
+      overflow: hidden;
+    }
+    .container .star, .container .particle {
+      position: absolute;
+      opacity: 0.18;
+      z-index: 1;
+      animation-duration: 4s;
+    }
+    .container .star:nth-child(1)  { top: 5%; left: 14%; width: 13px; height: 13px; }
+    .container .star:nth-child(2)  { top: 23%; left: 85%; width: 11px; height: 11px; }
+    .container .star:nth-child(3)  { top: 44%; left: 9%; width: 9px; height: 9px; }
+    .container .star:nth-child(4)  { top: 71%; left: 80%; width: 12px; height: 12px; }
+    .container .star:nth-child(5)  { top: 87%; left: 22%; width: 10px; height: 10px; }
+    .container .particle:nth-child(6) { top: 18%; left: 40%; width: 7px; height: 7px; }
+    .container .particle:nth-child(7) { top: 50%; left: 62%; width: 6px; height: 6px; }
+    .container .particle:nth-child(8) { top: 80%; left: 37%; width: 7px; height: 7px; }
+    .container .particle:nth-child(9) { top: 85%; left: 79%; width: 5px; height: 5px; }
+
+    /* --- Остальной контент и медиа --- */
     h1 { font-family: 'Playfair Display', serif; font-size: 42px; margin-bottom: 20px; margin-top: 10px; color: #1a2942; text-shadow: 2px 2px 4px rgba(147, 112, 219, 0.2); font-weight: 700; letter-spacing: 1px; position: relative; display: inline-block; padding-bottom: 15px; }
     h1::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 60%; height: 3px; background: linear-gradient(90deg, transparent, #d4af37, transparent);}
     p { margin: 12px 0; font-size: 18px; line-height: 1.7; color: #333; font-weight: 400; }
@@ -221,20 +186,61 @@
   <!-- Фоновые декорации -->
   <div class="background-decor">
     <!-- 20 звезд -->
-    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
-    <div class="star"></div><div class="star"></div><div class="star"></div><div class="star"></div>
+    <div class="star" style="top:8%;left:5%;width:16px;height:16px;"></div>
+    <div class="star" style="top:18%;left:90%;width:12px;height:12px;"></div>
+    <div class="star" style="top:38%;left:10%;width:10px;height:10px;"></div>
+    <div class="star" style="top:60%;left:85%;width:14px;height:14px;"></div>
+    <div class="star" style="top:75%;left:25%;width:11px;height:11px;"></div>
+    <div class="star" style="top:22%;left:60%;width:13px;height:13px;"></div>
+    <div class="star" style="top:80%;left:60%;width:10px;height:10px;"></div>
+    <div class="star" style="top:12%;left:35%;width:12px;height:12px;"></div>
+    <div class="star" style="top:30%;left:65%;width:11px;height:11px;"></div>
+    <div class="star" style="top:50%;left:15%;width:13px;height:13px;"></div>
+    <div class="star" style="top:65%;left:75%;width:10px;height:10px;"></div>
+    <div class="star" style="top:35%;left:40%;width:14px;height:14px;"></div>
+    <div class="star" style="top:55%;left:55%;width:11px;height:11px;"></div>
+    <div class="star" style="top:75%;left:45%;width:12px;height:12px;"></div>
+    <div class="star" style="top:18%;left:70%;width:10px;height:10px;"></div>
+    <div class="star" style="top:45%;left:30%;width:13px;height:13px;"></div>
+    <div class="star" style="top:85%;left:20%;width:11px;height:11px;"></div>
+    <div class="star" style="top:12%;left:80%;width:12px;height:12px;"></div>
+    <div class="star" style="top:38%;left:94%;width:10px;height:10px;"></div>
+    <div class="star" style="top:68%;left:95%;width:14px;height:14px;"></div>
     <!-- 20 частиц -->
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
-    <div class="particle"></div><div class="particle"></div><div class="particle"></div><div class="particle"></div>
+    <div class="particle" style="top:12%;left:10%;width:6px;height:6px;"></div>
+    <div class="particle" style="top:20%;left:85%;width:5px;height:5px;"></div>
+    <div class="particle" style="top:35%;left:35%;width:5px;height:5px;"></div>
+    <div class="particle" style="top:58%;left:80%;width:7px;height:7px;"></div>
+    <div class="particle" style="top:70%;left:25%;width:4px;height:4px;"></div>
+    <div class="particle" style="top:25%;left:60%;width:6px;height:6px;"></div>
+    <div class="particle" style="top:82%;left:60%;width:7px;height:7px;"></div>
+    <div class="particle" style="top:13%;left:45%;width:5px;height:5px;"></div>
+    <div class="particle" style="top:32%;left:65%;width:6px;height:6px;"></div>
+    <div class="particle" style="top:52%;left:15%;width:5px;height:5px;"></div>
+    <div class="particle" style="top:5%;left:18%;width:6px;height:6px;"></div>
+    <div class="particle" style="top:38%;left:78%;width:5px;height:5px;"></div>
+    <div class="particle" style="top:55%;left:8%;width:7px;height:7px;"></div>
+    <div class="particle" style="top:75%;left:92%;width:6px;height:6px;"></div>
+    <div class="particle" style="top:12%;left:38%;width:5px;height:5px;"></div>
+    <div class="particle" style="top:48%;left:58%;width:7px;height:7px;"></div>
+    <div class="particle" style="top:68%;left:42%;width:6px;height:6px;"></div>
+    <div class="particle" style="top:22%;left:88%;width:6px;height:6px;"></div>
+    <div class="particle" style="top:42%;left:3%;width:7px;height:7px;"></div>
+    <div class="particle" style="top:62%;left:72%;width:6px;height:6px;"></div>
   </div>
   <!-- Основной контент -->
   <div class="container">
+    <div class="container-decor">
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="star"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+      <div class="particle"></div>
+    </div>
     <h1>Приглашение на Суннәт Той!</h1>
     <p class="intro">Дорогие родители , родственники, братья, сестры, друзья, коллеги, соседи и просто близкие</p>
     <p>С радостью приглашаем Вас на праздник в честь нашего сына <span class="hero-name">Исмаила</span>.</p>
