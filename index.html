@@ -4,157 +4,383 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Приглашение на Суннәт Той</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
     body {
-      margin:0;
-      font-family:'Cormorant Garamond', serif;
-      background: linear-gradient(135deg, #fdfaf6, #fbe9d7);
-      color:#333;
-      display:flex;
-      justify-content:center;
-      padding:20px;
-      font-size:19px; /* увеличил общий текст */
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #0a1628, #1a2942, #0f1b2e);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      font-size: 18px;
+      min-height: 100vh;
     }
+    
     .container {
-      max-width:600px;
-      width:100%;
-      background:#fffdf9;
-      padding:24px;
-      border-radius:16px;
-      box-shadow:0 6px 24px rgba(0,0,0,0.1);
-      text-align:center;
+      max-width: 800px;
+      width: 100%;
+      background: linear-gradient(145deg, #ffffff, #f5f5f5);
+      padding: 40px 30px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px rgba(139, 0, 0, 0.3);
+      text-align: center;
+      border: 3px solid #d4af37;
+      position: relative;
+      overflow: hidden;
     }
-    h1 { font-size:30px; margin-bottom:14px; }
-    p { margin:10px 0; font-size:19px; line-height:1.5; }
+    
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 15px;
+      background: repeating-linear-gradient(
+        90deg,
+        #d4af37 0px,
+        #d4af37 20px,
+        transparent 20px,
+        transparent 25px,
+        #8b0000 25px,
+        #8b0000 45px,
+        transparent 45px,
+        transparent 50px
+      );
+    }
+    
+    .container::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 15px;
+      background: repeating-linear-gradient(
+        90deg,
+        #d4af37 0px,
+        #d4af37 20px,
+        transparent 20px,
+        transparent 25px,
+        #8b0000 25px,
+        #8b0000 45px,
+        transparent 45px,
+        transparent 50px
+      );
+    }
+    
+    h1 { 
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: 20px;
+      margin-top: 10px;
+      color: #1a2942;
+      text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.2);
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    
+    p { 
+      margin: 12px 0;
+      font-size: 18px;
+      line-height: 1.7;
+      color: #333;
+      font-weight: 400;
+    }
+    
+    p strong {
+      color: #1a2942;
+      font-weight: 600;
+    }
+    
+    .intro {
+      font-size: 19px;
+      color: #1a2942;
+      font-style: italic;
+      margin-bottom: 25px;
+    }
+    
+    .hero-name {
+      color: #d4af37;
+      font-weight: 700;
+      font-size: 22px;
+      text-shadow: 2px 2px 4px rgba(139, 0, 0, 0.3);
+    }
+    
     img.main-photo {
-      width:320px;
-      max-width:95%;
-      border-radius:12px;
-      margin:20px auto;
-      display:block;
+      width: 340px;
+      max-width: 95%;
+      border-radius: 16px;
+      margin: 30px auto;
+      display: block;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+      border: 3px solid rgba(139, 0, 0, 0.4);
     }
+    
     .info-block {
-      margin-top:20px;
-      background:#fff3e8;
-      padding:18px;
-      border-radius:10px;
-      text-align:center;
+      margin-top: 30px;
+      background: linear-gradient(135deg, #8b0000, #a00000);
+      padding: 25px;
+      border-radius: 15px;
+      text-align: left;
+      box-shadow: 0 8px 20px rgba(139, 0, 0, 0.4);
     }
-    .info-block p { margin:10px 0; font-size:19px; }
+    
+    .info-block p { 
+      margin: 12px 0;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      color: #fff;
+    }
+    
+    .info-block p::before {
+      content: '✦';
+      color: #d4af37;
+      margin-right: 12px;
+      font-size: 20px;
+    }
+    
     .btn {
-      display:inline-flex;
-      align-items:center;
-      justify-content:center;
-      margin-top:20px;
-      background:#d47d34;
-      color:#fff;
-      padding:12px 22px;
-      border-radius:8px;
-      text-decoration:none;
-      font-weight:bold;
-      font-size:17px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-top: 25px;
+      background: linear-gradient(135deg, #8b0000, #c00000);
+      color: #fff;
+      padding: 15px 30px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 17px;
+      transition: all 0.3s ease;
+      box-shadow: 0 5px 15px rgba(139, 0, 0, 0.4);
     }
+    
+    .btn:hover {
+      background: linear-gradient(135deg, #a00000, #d00000);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(139, 0, 0, 0.6);
+    }
+    
     .btn img {
-      width:24px;
-      height:24px;
-      margin-right:10px;
+      width: 28px;
+      height: 24px;
+      margin-right: 10px;
+      object-fit: contain;
     }
-    footer { margin-top:24px; font-size:16px; color:#555; font-style:italic; }
+    
+    footer { 
+      margin-top: 35px;
+      font-size: 16px;
+      color: #666;
+      font-style: italic;
+    }
 
-  /* RSVP форма */
-  .rsvp {
-    margin-top:30px;
-    padding:18px;
-    background:#ffe9d6;
-    border-radius:12px;
-  }
-  .rsvp input {
-    padding:10px;
-    width:85%;
-    margin-bottom:14px;
-    border:1px solid #ccc;
-    border-radius:6px;
-    font-size:17px;
-  }
-  .rsvp button {
-    display:block;
-    width:100%;
-    margin:10px auto;
-    padding:12px 0;
-    border:none;
-    background:none;     /* убрал фон */
-    color:#333;          /* просто текст */
-    font-size:18px;
-    font-weight:bold;
-    cursor:pointer;
-    transition: all 0.3s;
-  }
-  .rsvp button:hover {
-    text-decoration: underline; /* лёгкое подчёркивание при наведении */
-    color:#d47d34;              /* можно добавить акцентный цвет */
+    /* RSVP форма */
+    .rsvp {
+      margin-top: 40px;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 2px solid rgba(139, 0, 0, 0.3);
+      backdrop-filter: blur(10px);
+    }
+    
+    .rsvp h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      margin-bottom: 20px;
+      color: #d4af37;
+    }
+    
+    .rsvp input {
+      padding: 14px;
+      width: 100%;
+      margin-bottom: 20px;
+      border: 2px solid rgba(139, 0, 0, 0.4);
+      border-radius: 10px;
+      font-size: 17px;
+      background: rgba(255, 255, 255, 0.9);
+      color: #333;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s;
+    }
+    
+    .rsvp input:focus {
+      outline: none;
+      border-color: #8b0000;
+      background: #fff;
+    }
+    
+    .rsvp button {
+      display: block;
+      width: 100%;
+      margin: 12px auto;
+      padding: 15px;
+      border: 2px solid #8b0000;
+      background: linear-gradient(135deg, #8b0000, #a00000);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    .rsvp button:hover {
+      background: linear-gradient(135deg, #a00000, #c00000);
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(139, 0, 0, 0.5);
+    }
+    
+    .rsvp button:active {
+      transform: scale(0.98);
     }
 
     /* Календарь */
     .calendar {
-      margin:30px auto;
-      text-align:center;
+      margin: 40px auto;
+      text-align: center;
     }
+    
     .calendar h2 {
-      margin-bottom:14px;
-      font-size:22px;
-      font-weight:bold;
+      font-family: 'Playfair Display', serif;
+      margin-bottom: 20px;
+      font-size: 26px;
+      font-weight: 600;
+      color: #d4af37;
     }
+    
     .calendar table {
-      width:100%;
-      border-collapse:collapse;
-      margin:0 auto;
-      background:#fff8f0;
-      border-radius:10px;
-      overflow:hidden;
-      box-shadow:0 3px 10px rgba(0,0,0,0.1);
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 4px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.03);
+      border-radius: 12px;
+      overflow: hidden;
+      padding: 15px;
     }
-    .calendar th, .calendar td {
-      padding:12px;
-      text-align:center;
-      border:1px solid #ddd;
-      font-size:18px;
+    
+    .calendar th {
+      padding: 12px;
+      text-align: center;
+      font-size: 16px;
+      color: #1a2942;
+      font-weight: 600;
+      border-bottom: 2px solid rgba(139, 0, 0, 0.3);
     }
+    
+    .calendar td {
+      padding: 12px;
+      text-align: center;
+      font-size: 16px;
+      background: rgba(26, 41, 66, 0.05);
+      border-radius: 8px;
+      transition: all 0.3s;
+      color: #333;
+    }
+    
+    .calendar td:hover {
+      background: rgba(26, 41, 66, 0.1);
+    }
+    
     .calendar .highlight {
-      background:#d47d34;
-      color:#fff;
-      font-weight:bold;
-      border-radius:6px;
+      background: linear-gradient(135deg, #8b0000, #c00000);
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+      box-shadow: 0 0 20px rgba(139, 0, 0, 0.6);
+      transform: scale(1.1);
     }
 
     /* Countdown */
     #countdown {
-      margin-top:30px;
-      font-size:22px;
-      font-weight:bold;
-      color:#222;
+      margin-top: 35px;
+      padding: 25px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      border: 2px solid rgba(139, 0, 0, 0.3);
+    }
+    
+    .countdown-title {
+      font-size: 20px;
+      color: #d4af37;
+      margin-bottom: 15px;
+      font-weight: 400;
+    }
+    
+    .countdown-numbers {
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+    
+    .countdown-item {
+      background: linear-gradient(135deg, #8b0000, #a00000);
+      padding: 15px 20px;
+      border-radius: 12px;
+      min-width: 80px;
+      box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+    }
+    
+    .countdown-value {
+      font-size: 32px;
+      font-weight: 700;
+      color: #fff;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .countdown-label {
+      font-size: 13px;
+      color: #d4af37;
+      text-transform: uppercase;
+      margin-top: 5px;
+      letter-spacing: 1px;
     }
 
     /* Оверлей для запуска музыки */
     #overlay {
       position: fixed;
-      top:0; left:0;
-      width:100%; height:100%;
-      background:rgba(0,0,0,0.6);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      z-index:1000;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(10, 22, 40, 0.95);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
     }
+    
     #playBtn {
-      font-size:18px;
-      padding:14px 24px;
-      background:#d47d34;
-      color:#fff;
-      border:none;
-      border-radius:12px;
-      cursor:pointer;
-      font-weight:bold;
+      font-size: 18px;
+      padding: 18px 35px;
+      background: linear-gradient(135deg, #8b0000, #c00000);
+      color: #fff;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      font-weight: 600;
+      box-shadow: 0 10px 30px rgba(139, 0, 0, 0.5);
+      transition: all 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+    
+    #playBtn:hover {
+      background: linear-gradient(135deg, #a00000, #d00000);
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(139, 0, 0, 0.7);
     }
   </style>
 </head>
@@ -163,17 +389,31 @@
   <div class="container">
 
     <!-- Основной текст -->
-    <h1>Приглашение на Суннәт Той!</h1>
-    <p>Дорогие друзья, братья, сестры, родственники, коллеги, соседи и просто близкие</p>
-    <p>С радостью приглашаем Вас на праздник в честь нашего сына <strong>Исмаила</strong>.</p>
+    <h1>Приглашение на Суннәт Той</h1>
+    <p class="intro">Дорогие родители , родственники, братья, сестры, друзья, коллеги, соседи и просто близкие</p>
+    <p>С радостью приглашаем Вас на праздник в честь нашего сына <span class="hero-name">Исмаила</span>.</p>
 
-    <img src="photo.jpg" class="main-photo">
+    <img src="photo.jpg" class="main-photo" alt="Исмаила">
 
     <div class="info-block">
-      <p><strong>Дата:</strong> 18 октября 2025, 18:00</p>
-      <p><strong>Место:</strong> Алматы, ул. Ильяса Жансугурова, 283</p>
-      <p><strong>Хозяева торжества:</strong> Ялкунжан и Зарина</p>
-      <p><strong>📞 Контакты:</strong> +7 747 589 9010, +7 702 654 9993</p>
+      <p><strong>Дата:</strong>  18 октября 2025, 18:00</p>
+      <p><strong>Место:</strong>  Алматы, ул. Ильяса Жансугурова, 283</p>
+      <p><strong>Хозяева торжества:</strong>  Ялкунжан и Зарина</p>
+      <p><strong>Контакты:</strong>  +7 747 589 9010, +7 702 654 9993</p>
+    </div>
+
+    <!-- RSVP -->
+    <div class="rsvp">
+      <h2>Подтверждение участия</h2>
+      <input type="text" id="guestName" placeholder="Ваше имя" required>
+      <button onclick="sendRSVP('Да, конечно приеду')">✓ Да, конечно, приеду</button>
+      <button onclick="sendRSVP('Нет, к сожалению не смогу приехать')">✗ Нет, к сожалению, не смогу приехать</button>
+    </div>
+
+    <!-- Countdown -->
+    <div id="countdown">
+      <div class="countdown-title">До начала мероприятия осталось:</div>
+      <div class="countdown-numbers" id="countdown-numbers"></div>
     </div>
 
     <!-- Кнопка с иконкой 2ГИС -->
@@ -181,20 +421,6 @@
       <img src="https://optim.tildacdn.pro/tild3632-3565-4530-b731-303361653463/-/resize/400x/-/format/webp/image-removebg-previ.png.webp" alt="2GIS">
       Открыть в 2ГИС
     </a>
-
-    <!-- RSVP -->
-    <div class="rsvp">
-      <h2>Подтверждение участия</h2>
-      <input type="text" id="guestName" placeholder="Ваше имя" required>
-      <button onclick="sendRSVP('Да, конечно приеду')">Да, конечно, приеду</button>
-      <button onclick="sendRSVP('Нет, к сожалению не смогу приехать')">Нет, к сожалению, не смогу приехать</button>
-    </div>
-
-    <!-- Музыка -->
-    <audio id="bg-audio" loop>
-      <source src="music.mp3" type="audio/mpeg">
-      Ваш браузер не поддерживает аудио.
-    </audio>
 
     <!-- Календарь -->
     <div class="calendar">
@@ -221,8 +447,11 @@
       </table>
     </div>
 
-    <!-- Countdown -->
-    <div id="countdown"></div>
+    <!-- Музыка -->
+    <audio id="bg-audio" loop>
+      <source src="music.mp3" type="audio/mpeg">
+      Ваш браузер не поддерживает аудио.
+    </audio>
 
     <footer>Пожалуйста, подтвердите участие заранее.</footer>
   </div>
@@ -267,14 +496,14 @@
 
     // Countdown
     const eventDate = new Date("2025-10-18T18:00:00").getTime();
-    const countdownEl = document.getElementById("countdown");
+    const countdownEl = document.getElementById("countdown-numbers");
 
     function updateCountdown() {
       const now = new Date().getTime();
       const diff = eventDate - now;
 
       if (diff <= 0) {
-        countdownEl.innerHTML = "🎉 Праздник уже начался!";
+        document.getElementById("countdown").innerHTML = '<div style="font-size:28px;color:#d4af37;">🎉 Праздник уже начался!</div>';
         return;
       }
 
@@ -283,7 +512,24 @@
       const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-      countdownEl.innerHTML = `До начала мероприятия осталось: <br><strong>${days}д ${hours}ч ${minutes}м ${seconds}с</strong>`;
+      countdownEl.innerHTML = `
+        <div class="countdown-item">
+          <div class="countdown-value">${days}</div>
+          <div class="countdown-label">дней</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value">${hours}</div>
+          <div class="countdown-label">часов</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value">${minutes}</div>
+          <div class="countdown-label">минут</div>
+        </div>
+        <div class="countdown-item">
+          <div class="countdown-value">${seconds}</div>
+          <div class="countdown-label">секунд</div>
+        </div>
+      `;
     }
 
     setInterval(updateCountdown, 1000);
